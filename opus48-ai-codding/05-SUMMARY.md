@@ -10,14 +10,15 @@
 
 ### 📚 核心文档
 
-1. **README.md** —— 全景图、快速开始、设计理念
-2. **00-NAVIGATION.md** —— AI 的路由表 + 通用执行规则（AI 先读这个）
-3. **CONTEXT.md** —— 共享语言模板
-4. **CHECKLIST.md** —— 完整检查清单
-5. **QUICKSTART.md** —— 5 分钟快速上手指南
-6. **SUMMARY.md** —— 本文档
+1. **00-NAVIGATION.md** —— AI 的路由表 + 通用执行规则（AI 先读这个）
+2. **01-AI-REFERENCE.md** —— AI 使用参考手册
+3. **02-README.md** —— 全景图、快速开始、设计理念
+4. **03-QUICKSTART.md** —— 5 分钟快速上手指南
+5. **04-CHECKLIST.md** —— 完整检查清单
+6. **05-SUMMARY.md** —— 本文档
+7. **06-CONTEXT.md** —— 共享语言模板
 
-### 🛠️ 10 个技能
+### 🛠️ 11 个技能
 
 | # | Skill | 说明 |
 |---|---|---|
@@ -124,7 +125,7 @@
 ## 🏁 从哪里开始？
 
 推荐路径：
-1. 先读 `QUICKSTART.md` —— 5 分钟了解
+1. 先读 `03-QUICKSTART.md` —— 5 分钟了解
 2. 拿一个小需求练练手，从 `/grill-with-docs` + `/tdd` 开始
 3. 习惯后再加其他技能
 

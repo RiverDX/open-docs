@@ -2,6 +2,7 @@
 
 > **你是来跑 AI 编程工作流的。本文件是你的路由表 + 执行规则。**
 > **阅读时间：1 分钟。所有 Skill 都在 `skills/` 子目录，每个一个文件，自包含。**
+> **参考文档**：`01-AI-REFERENCE.md` —— 完整的使用参考手册，不知道怎么做时先看这个！
 
 ---
 
@@ -19,11 +20,49 @@
 | 审查代码 / code review / 预审 / 检查改动 | `/codex-review` | `skills/08-codex-review.md` |
 | 优化架构 / 深化模块 / improve architecture | `/improve-architecture` | `skills/09-improve-architecture.md` |
 | 巡检文档 / 检查腐化 / doc rot / 健康度 | `/doc-rot` | `skills/10-doc-rot.md` |
+| 实现 / implement / 写代码 + 审查 / 一条龙 | `/implement` | `skills/11-implement.md` |
 
 **匹配规则**：
 - 如果用户输入命中上表 → 立即读对应文件，按其中规则执行
 - 如果不命中 → 反问"你想做下列哪件事？"列出 10 个 Skill 名
 - **禁止自由发挥**，禁止跳过 Skill 直接动手
+
+---
+
+## 完整工作流（按这个顺序走）
+
+```
+想法
+  │
+  ├─→ /triage ──────────────┐  (如果有 backlog 要整理)
+  │                         │
+  └─→ /grill-with-docs ←────┘  ← (起点：先理解！)
+       │
+       ↑  ↓ (需要原型时用 /handoff + /prototype)
+       │
+       ├─→ /to-prd ──────────┐  (固化共识)
+       │                     │
+       └─→ /to-issues ←──────┘  (垂直切片，曳光弹先行)
+            │
+            ├─→ /implement ←──┬─ (一条龙：TDD + 审查)
+            │  │              │
+            │  │ (或者分开走)
+            │  ├─→ /tdd ──────┘
+            │  └─→ /codex-review
+            │
+            ├─→ /improve-architecture (完成功能后，深化模块)
+            │
+            └─→ /doc-rot (每月巡检，保持文档新鲜)
+```
+
+**快速选择指南**：
+- 有 idea 但不清楚 → `/grill-with-docs`
+- 共识达成 → `/to-prd`
+- PRD 写完 → `/to-issues`
+- 开始写代码 → `/implement` (一条龙) 或者 `/tdd`
+- 代码写完 → `/codex-review`
+- 功能完成想优化 → `/improve-architecture`
+- 月底了 → `/doc-rot`
 
 ---
 
@@ -98,27 +137,47 @@
 
 ```
 opus48-ai-codding/
-├── README.md                      # 全景图 + 快速开始
-├── 00-NAVIGATION.md               # 本文件（路由 + 通用规则）
-├── CONTEXT.md                     # 项目共享语言模板
-├── CHECKLIST.md                   # 完整检查清单
-└── skills/                        # 10 个 Skill（按顺序）
-    ├── 01-triage.md               # 画布整理
-    ├── 02-grill-with-docs.md      # 对齐共识
-    ├── 03-handoff.md              # 上下文接力
-    ├── 04-prototype.md            # 草稿探索
-    ├── 05-to-prd.md               # 定稿草图
-    ├── 06-to-issues.md            # 垂直切片
-    ├── 07-tdd.md                 # 红→绿→重构
-    ├── 08-codex-review.md        # 画布审查
-    ├── 09-improve-architecture.md # 深化模块
-    └── 10-doc-rot.md             # 月度巡检
+├── 00-NAVIGATION.md               # 本文件（路由 + 通用规则）← AI 第一个读
+├── 01-AI-REFERENCE.md            # AI 使用参考手册
+├── 02-README.md                  # 全景图 + 快速开始
+├── 03-QUICKSTART.md              # 5 分钟快速上手指南
+├── 04-CHECKLIST.md               # 完整检查清单
+├── 05-SUMMARY.md                 # 工作流总结
+├── 06-CONTEXT.md                 # 项目共享语言模板
+├── skills/                        # 11 个 Skill（按顺序）
+│   ├── 01-triage.md               # 画布整理
+│   ├── 02-grill-with-docs.md      # 对齐共识
+│   ├── 03-handoff.md              # 上下文接力
+│   ├── 04-prototype.md            # 草稿探索
+│   ├── 05-to-prd.md               # 定稿草图
+│   ├── 06-to-issues.md            # 垂直切片
+│   ├── 07-tdd.md                 # 红→绿→重构
+│   ├── 08-codex-review.md        # 画布审查
+│   ├── 09-improve-architecture.md # 深化模块
+│   ├── 10-doc-rot.md             # 月度巡检
+│   └── 11-implement.md           # 实现一条龙
+├── templates/                     # 脚手架模板（复制即用）
+│   ├── README.md                  # 模板使用说明
+│   ├── CONTEXT.md.template        # 共享语言模板
+│   ├── grill-report.md.template   # Grill 报告模板
+│   ├── prd.md.template            # PRD 模板
+│   ├── issues.md.template         # Issue 清单模板
+│   └── implement-report.md.template # Implement 报告模板
+└── examples/sample-project/       # 完整示例项目
+    ├── README.md                  # 示例说明
+    ├── CONTEXT.md                 # 示例共享语言
+    ├── docs/
+    │   ├── prd/...                # 示例 PRD
+    │   ├── issues/...             # 示例 Issue 清单
+    │   └── reports/...            # 示例报告
+    └── src/models/...             # 示例代码 + 测试
 ```
 
 ---
 
-## 总原则（三句话）
+## 总原则（四句话）
 
 > 1. **先 Grill，再动手**
 > 2. **在聪明区工作**
 > 3. **垂直切片，TDD 循环**
+> 4. **需要时用 /implement 一条龙**

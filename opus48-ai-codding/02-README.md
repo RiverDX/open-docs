@@ -1,9 +1,11 @@
 # Opus48 AI 编程工作流
 
-> **版本**：V2.0  
+> **版本**：V2.1  
 > **核心理念**：Matt Pocock Agent Skills + Loop Engineering  
 > **设计原则**：极简、艺术、先理解再动手、在聪明区工作  
 > **适用场景**：任何编程项目（Java/SpringBoot 优先支持）
+
+**V2.1 更新**：新增 `/implement` 一条龙 skill、`templates/` 脚手架模板、`examples/sample-project/` 完整示例项目
 
 ---
 
@@ -48,26 +50,23 @@
                               ╚═════════════════╦════════════════════╝
                                               ┌─────────┘
                                               ▼
-                              ╔══════════════════════════════════════╗
-                              ║  5. /tdd - 红→绿→重构循环             ║
-                              ║     （测试先行，通过公开接口验证）     ║
-                              ╚═════════════════╦════════════════════╝
-                                              ┌─────────┘
+              ┌───────────────────────────────┴───────────────────────────────┐
+              │                                                               │
+              ▼                                                               ▼
+    ╔══════════════════════════════════╗        ┌─────────────────────────────────┐
+    ║  5. /implement - 一条龙           ║        │  分开走：/tdd + /codex-review  │
+    ║     （TDD + 审查一步完成）        │        │     （灵活控制每一步）         │
+    ╚═════════════════╦════════════════╝        └─────────────────┬───────────────┘
+                      └───────────────────────┬───────────────────┘
                                               ▼
                               ┌─────────────────────────────────────┐
-                              │  6. /codex-review - 画布审查        │
-                              │     （PR 前预审，6 维度检查）        │
-                              └────────────────┬────────────────────┘
-                                              │
-                                              ▼
-                              ┌─────────────────────────────────────┐
-                              │  7. /improve-architecture - 深化    │
+                              │  6. /improve-architecture - 深化    │
                               │     （不要重写，要让模块变深）        │
                               └────────────────┬────────────────────┘
                                               │
                                               ▼
                               ┌─────────────────────────────────────┐
-                              │  8. /doc-rot - 月度巡检            │
+                              │  7. /doc-rot - 月度巡检            │
                               │     （检查腐化，回触前面步骤）      │
                               └─────────────────────────────────────┘
 ```
@@ -78,11 +77,14 @@
 
 ```
 opus48-ai-codding/
-├── README.md                      # 本文件（全景图 + 导航）
-├── CONTEXT.md                     # 共享语言（使用本工作流时复制到项目根）
 ├── 00-NAVIGATION.md               # 路由表（AI 读取的第一个文件）
-├── CHECKLIST.md                   # 完整检查清单
-├── skills/                        # 8 个 Skill（按顺序）
+├── 01-AI-REFERENCE.md            # AI 使用参考手册（必看！）
+├── 02-README.md                  # 本文件（全景图 + 导航）
+├── 03-QUICKSTART.md              # 5 分钟快速上手指南
+├── 04-CHECKLIST.md               # 完整检查清单
+├── 05-SUMMARY.md                 # 工作流总结
+├── 06-CONTEXT.md                 # 共享语言（使用本工作流时复制到项目根）
+├── skills/                        # 11 个 Skill（按顺序）
 │   ├── 01-triage.md               # 画布整理
 │   ├── 02-grill-with-docs.md      # 对齐共识
 │   ├── 03-handoff.md              # 上下文接力
@@ -92,9 +94,23 @@ opus48-ai-codding/
 │   ├── 07-tdd.md                 # 红→绿→重构
 │   ├── 08-codex-review.md        # 画布审查
 │   ├── 09-improve-architecture.md # 深化模块
-│   └── 10-doc-rot.md             # 月度巡检
-└── examples/                     # 示例
-    └── sample-project/           # 示例项目应用
+│   ├── 10-doc-rot.md             # 月度巡检
+│   └── 11-implement.md           # 实现一条龙
+├── templates/                     # 脚手架模板（复制即用）
+│   ├── README.md                  # 模板使用说明
+│   ├── CONTEXT.md.template        # 共享语言模板
+│   ├── grill-report.md.template   # Grill 报告模板
+│   ├── prd.md.template            # PRD 模板
+│   ├── issues.md.template         # Issue 清单模板
+│   └── implement-report.md.template # Implement 报告模板
+└── examples/sample-project/       # 完整示例项目
+    ├── README.md                  # 示例说明
+    ├── CONTEXT.md                 # 示例共享语言
+    ├── docs/
+    │   ├── prd/...                # 示例 PRD
+    │   ├── issues/...             # 示例 Issue 清单
+    │   └── reports/...            # 示例报告
+    └── src/models/...             # 示例代码 + 测试
 ```
 
 ---
@@ -103,16 +119,21 @@ opus48-ai-codding/
 
 ### 新手路径（按顺序）
 
-1. **第 1 天**：读 README，理解 8 个 Skill 的用途
-2. **第 2-3 天**：从 `/triage` + `/grill-with-docs` 开始，不用急着写代码
-3. **第 4-5 天**：尝试 `/to-prd` + `/to-issues` + `/tdd` 完整流程
+1. **第 1 天**：先看 `examples/sample-project/` 理解完整应用，然后读 README
+2. **第 2-3 天**：从 `/grill-with-docs` 开始，不用急着写代码，用 `templates/` 里的模板
+3. **第 4-5 天**：尝试 `/to-prd` + `/to-issues` + `/implement` 一条龙流程
 4. **第 2 周**：加入 `/codex-review` 和 `/improve-architecture`
 5. **第 1 个月**：跑一次 `/doc-rot` 巡检
+
+**快速启动一个新项目**：
+1. 复制 `templates/CONTEXT.md.template` 到项目根目录，重命名为 `CONTEXT.md`
+2. 运行 `/grill-with-docs` 理解需求
+3. 参考 `examples/sample-project/` 里的写法
 
 ### 老项目接入路径
 
 1. **首周**：直接跑 `/doc-rot` 做体检，识别最腐化的模块
-2. **第 2-3 周**：对最腐化的模块跑 `/triage` + `/grill-with-docs` + `/improve-architecture`
+2. **第 2-3 周**：对最腐化的模块跑 `/grill-with-docs` + `/improve-architecture`
 3. **第 4 周起**：新功能采用完整流程
 4. **以后每月**：`/doc-rot` 巡检 + 按优先级修复
 
