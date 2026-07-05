@@ -1,11 +1,11 @@
 # Opus48 AI 编程工作流
 
-> **版本**：V2.1  
+> **版本**：V2.2  
 > **核心理念**：Matt Pocock Agent Skills + Loop Engineering  
 > **设计原则**：极简、艺术、先理解再动手、在聪明区工作  
 > **适用场景**：任何编程项目（Java/SpringBoot 优先支持）
 
-**V2.1 更新**：新增 `/implement` 一条龙 skill、`templates/` 脚手架模板、`examples/sample-project/` 完整示例项目
+**V2.2 更新**：优化文档结构，消除重复内容，明确各文档分工
 
 ---
 
@@ -77,13 +77,12 @@
 
 ```
 opus48-ai-codding/
-├── 00-NAVIGATION.md               # 路由表（AI 读取的第一个文件）
-├── 01-AI-REFERENCE.md            # AI 使用参考手册（必看！）
-├── 02-README.md                  # 本文件（全景图 + 导航）
-├── 03-QUICKSTART.md              # 5 分钟快速上手指南
-├── 04-CHECKLIST.md               # 完整检查清单
-├── 05-SUMMARY.md                 # 工作流总结
-├── 06-CONTEXT.md                 # 共享语言（使用本工作流时复制到项目根）
+├── 00-NAVIGATION.md               # [AI专用] 路由表 + 通用规则（AI第一个读）
+├── 01-AI-REFERENCE.md            # [AI专用] AI使用参考手册（不知道怎么做时看这个）
+├── 02-README.md                  # [人类用] 本文件（全景图 + 导航）
+├── 03-QUICKSTART.md              # [人类用] 快速开始（新手路径 + 老项目接入）
+├── 04-CHECKLIST.md               # [速查] 完整检查清单
+├── 06-CONTEXT.md                 # [项目用] 共享语言模板（复制到项目根目录）
 ├── skills/                        # 11 个 Skill（按顺序）
 │   ├── 01-triage.md               # 画布整理
 │   ├── 02-grill-with-docs.md      # 对齐共识
@@ -115,31 +114,18 @@ opus48-ai-codding/
 
 ---
 
-## 🚀 快速开始
+## 🚀 从这里开始
 
-### 新手路径（按顺序）
-
-1. **第 1 天**：先看 `examples/sample-project/` 理解完整应用，然后读 README
-2. **第 2-3 天**：从 `/grill-with-docs` 开始，不用急着写代码，用 `templates/` 里的模板
-3. **第 4-5 天**：尝试 `/to-prd` + `/to-issues` + `/implement` 一条龙流程
-4. **第 2 周**：加入 `/codex-review` 和 `/improve-architecture`
-5. **第 1 个月**：跑一次 `/doc-rot` 巡检
-
-**快速启动一个新项目**：
-1. 复制 `templates/CONTEXT.md.template` 到项目根目录，重命名为 `CONTEXT.md`
-2. 运行 `/grill-with-docs` 理解需求
-3. 参考 `examples/sample-project/` 里的写法
-
-### 老项目接入路径
-
-1. **首周**：直接跑 `/doc-rot` 做体检，识别最腐化的模块
-2. **第 2-3 周**：对最腐化的模块跑 `/grill-with-docs` + `/improve-architecture`
-3. **第 4 周起**：新功能采用完整流程
-4. **以后每月**：`/doc-rot` 巡检 + 按优先级修复
+| 你是谁 | 先看哪里 |
+|-------|---------|
+| **AI** | 00-NAVIGATION.md → 01-AI-REFERENCE.md |
+| **新手** | 03-QUICKSTART.md → examples/sample-project/ |
+| **老手** | 02-README.md → 04-CHECKLIST.md |
+| **老项目接入** | 03-QUICKSTART.md → "老项目接入路径" |
 
 ---
 
-## ⚡ 关键概念
+## 📚 核心概念（快速参考）
 
 ### 聪明区 vs 变笨区
 
@@ -168,20 +154,6 @@ opus48-ai-codding/
 - **HITL**（Human In The Loop）：需要人在关键节点做决策
 
 **规则**：简单 = AFK，复杂/涉及设计 = HITL。
-
----
-
-## 📋 检查清单速查
-
-见 [CHECKLIST.md](./CHECKLIST.md)。
-
----
-
-## 🔗 相关资源
-
-- [Matt Pocock Agent Skills 系列](../Matt%20Pocock%20-%20Agent%20Skills%20系列/) —— 原始理念
-- [代码的艺术 - Skill 应用的极简之道](./代码的艺术-Agent-Skill-应用的极简之道.md) —— 艺术化解读
-- [AI 开发工作流 SOP](../AI_开发工作流_SOP/) —— V1.0 版本（保留参考）
 
 ---
 
