@@ -17,8 +17,17 @@ sample-project/
 │   │   └── codex-review-2026-06-28.md  # 审查报告
 │   ├── prd/
 │   │   └── task-management-2026-06-28.md  # PRD
-│   └── issues/
-│       └── task-management-2026-06-28.md  # Issue 清单
+│   ├── issues/
+│   │   ├── task-management-2026-06-28.md  # Issue 清单（旧格式）
+│   │   └── task-management-2026-06-28/  # Issues（新格式，GitHub-style）
+│   │       ├── README.md               # Issue 总览
+│   │       ├── 001-创建任务并看到在列表中.md
+│   │       ├── 002-更新任务状态.md
+│   │       ├── 003-删除任务.md
+│   │       └── 004-按优先级筛选任务.md
+│   └── todos/
+│       ├── README.md               # TODO 总览
+│       └── todo-2026-06-28-001-确定是否需要持久化存储.md
 └── src/                        # 示例代码
     ├── models/
     │   ├── Task.js
@@ -140,10 +149,18 @@ sample-project/
 
 ### Issue 清单
 
-看看[Issue 清单](./docs/issues/task-management-2026-06-28.md)，这是垂直切片的结果：
+看看[Issue 清单（旧格式）](./docs/issues/task-management-2026-06-28.md)或[Issue 总览（新格式）](./docs/issues/task-management-2026-06-28/README.md)，这是垂直切片的结果：
 - 每个 issue 都是端到端的完整故事
 - 标记了 AFK/HITL
 - 有执行顺序
+- 新格式：每个 issue 独立文件，GitHub-style frontmatter，状态跟踪
+
+### TODO 列表
+
+看看[TODO 总览](./docs/todos/README.md)，展示如何用 TODO 跟踪阻塞 issue 的问题：
+- TODO 可以关联多个 issue
+- 状态跟踪（open/resolved/closed）
+- 明确记录需要确认的问题
 
 ---
 

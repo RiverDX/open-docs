@@ -82,6 +82,7 @@ opus48-ai-codding/
 ├── 02-README.md                  # [人类用] 本文件（全景图 + 导航）
 ├── 03-QUICKSTART.md              # [人类用] 快速开始（新手路径 + 老项目接入）
 ├── 04-CHECKLIST.md               # [速查] 完整检查清单
+├── 05-WORKFLOW.md               # [人类用] 完整工作流调用指南（新！）
 ├── 06-CONTEXT.md                 # [项目用] 共享语言模板（复制到项目根目录）
 ├── skills/                        # 11 个 Skill（按顺序）
 │   ├── 01-triage.md               # 画布整理
@@ -100,14 +101,18 @@ opus48-ai-codding/
 │   ├── CONTEXT.md.template        # 共享语言模板
 │   ├── grill-report.md.template   # Grill 报告模板
 │   ├── prd.md.template            # PRD 模板
-│   ├── issues.md.template         # Issue 清单模板
+│   ├── issues.md.template         # Issue 清单模板（旧格式）
+│   ├── issues-readme.md.template  # Issue 总览模板（新格式）
+│   ├── single-issue.md.template   # 单个 GitHub-style Issue 模板
+│   ├── todo.md.template           # TODO 项模板
 │   └── implement-report.md.template # Implement 报告模板
 └── examples/sample-project/       # 完整示例项目
     ├── README.md                  # 示例说明
     ├── CONTEXT.md                 # 示例共享语言
     ├── docs/
     │   ├── prd/...                # 示例 PRD
-    │   ├── issues/...             # 示例 Issue 清单
+    │   ├── issues/...             # 示例 Issue 清单（旧 + 新格式）
+    │   ├── todos/...              # 示例 TODO 列表
     │   └── reports/...            # 示例报告
     └── src/models/...             # 示例代码 + 测试
 ```
@@ -119,9 +124,10 @@ opus48-ai-codding/
 | 你是谁 | 先看哪里 |
 |-------|---------|
 | **AI** | 00-NAVIGATION.md → 01-AI-REFERENCE.md |
-| **新手** | 03-QUICKSTART.md → examples/sample-project/ |
-| **老手** | 02-README.md → 04-CHECKLIST.md |
+| **新手** | 03-QUICKSTART.md → 05-WORKFLOW.md → examples/sample-project/ |
+| **老手** | 02-README.md → 05-WORKFLOW.md → 04-CHECKLIST.md |
 | **老项目接入** | 03-QUICKSTART.md → "老项目接入路径" |
+| **想看完整流程** | 05-WORKFLOW.md（新！） |
 
 ---
 
@@ -154,6 +160,27 @@ opus48-ai-codding/
 - **HITL**（Human In The Loop）：需要人在关键节点做决策
 
 **规则**：简单 = AFK，复杂/涉及设计 = HITL。
+
+---
+
+### GitHub-style Issue 格式（新）
+
+V2.2 新增支持 GitHub 风格的单个 Issue 文件：
+
+- **旧格式**：所有 issue 在一个清单文件中（`docs/issues/{功能名}-{YYYY-MM-DD}.md`）
+- **新格式**：每个 issue 独立文件 + 总览 README（`docs/issues/{功能名}-{YYYY-MM-DD}/`）
+
+**新格式特点**：
+- 每个 issue 一个文件：`001-{标题}.md`、`002-{标题}.md`...
+- GitHub 兼容的 frontmatter（title、labels、assignees、created）
+- 状态跟踪（pending/in-progress/blocked/done）
+- TODO 关联支持（明确标记哪个 TODO 阻塞了哪个 issue）
+- 历史记录（记录状态变更）
+
+**TODO 跟踪**：
+- 单独的 `docs/todos/` 目录
+- 每个 TODO 一个文件，记录需要确认的问题
+- 明确标记 TODO 阻塞的 issue
 
 ---
 

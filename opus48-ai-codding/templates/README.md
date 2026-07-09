@@ -11,7 +11,10 @@
 | `CONTEXT.md.template` | 共享语言模板 | 项目根目录的 `CONTEXT.md` |
 | `grill-report.md.template` | Grill 报告模板 | `docs/reports/grill-YYYY-MM-DD.md` |
 | `prd.md.template` | PRD 模板 | `docs/prd/xxx-YYYY-MM-DD.md` |
-| `issues.md.template` | Issue 清单模板 | `docs/issues/xxx-YYYY-MM-DD.md` |
+| `issues.md.template` | Issue 清单模板（旧格式） | `docs/issues/xxx-YYYY-MM-DD.md` |
+| `issues-readme.md.template` | Issue 总览模板（新格式） | `docs/issues/{功能名}-{YYYY-MM-DD}/README.md` |
+| `single-issue.md.template` | 单个 GitHub-style Issue 模板 | `docs/issues/{功能名}-{YYYY-MM-DD}/001-{标题}.md` |
+| `todo.md.template` | TODO 项模板 | `docs/todos/todo-{YYYY-MM-DD}-001.md` |
 | `implement-report.md.template` | Implement 报告模板 | `docs/reports/implement-xxx-YYYY-MM-DD.md` |
 
 ---
@@ -70,11 +73,37 @@ PRD 模板，包含：
 
 ### issues.md.template
 
-Issue 清单模板，包含：
+Issue 清单模板（旧格式，向后兼容），包含：
 - 执行顺序
 - Issue 详情
 - 依赖关系
 - AFK/HITL 标记
+
+### issues-readme.md.template
+
+Issue 总览模板（新格式，推荐），包含：
+- 状态看板
+- 执行顺序可视化
+- 依赖关系图
+- 阻塞的 Issue 列表
+
+### single-issue.md.template
+
+单个 GitHub-style Issue 模板（新格式，推荐），包含：
+- GitHub 兼容的 frontmatter
+- 状态跟踪（pending/in-progress/blocked/done）
+- 依赖关系
+- 阻塞的 TODO 列表
+- 验收标准
+- 历史记录
+
+### todo.md.template
+
+TODO 项模板（新格式，推荐），包含：
+- GitHub 兼容的 frontmatter
+- 描述和需要确认的问题
+- 阻塞的 issue 列表
+- 建议解决方案
 
 ### implement-report.md.template
 

@@ -10,6 +10,7 @@
 | 项 | 必需 | 缺失时动作 |
 |---|---|---|
 | Issue / backlog 列表 | 必需 | 反问"你要整理哪些 issue？提供链接或清单" |
+| 单个 Issue 文件路径（新格式） | 可选 | 支持处理 `docs/issues/{功能名}-{YYYY-MM-DD}/00x-{标题}.md` |
 | 项目现有 label 分类 | 建议 | 缺时用本 Skill 建议的标准标签 |
 | .out-of-scope/ 目录（如有） | 建议 | 检查是否有已决定不做的事项 |
 
@@ -24,14 +25,15 @@
 
 ---
 
-## 流程（6 步，禁止跳步）
+## 流程（7 步，禁止跳步）
 
 1. **扫**：列出所有待分流的 issue，输出清单
 2. **分类**：给每个 issue 打**类别标签**（bug / enhancement / question / docs）
 3. **定状态**：给每个 issue 打**状态标签**（needs-triage / needs-info / ready-for-agent / ready-for-human / wontfix）
-4. **出初稿**：按下方"输出格式"写 Triage 报告
-5. **自查**：按 PASS 条件 AC1–AC6 填自查表，每条给证据
-6. **终输出**：确认 2 个文件都已生成
+4. **识别阻塞**：检查是否有 TODO 阻塞 issue，标记为 `status/blocked` 并关联 TODO
+5. **出初稿**：按下方"输出格式"写 Triage 报告
+6. **更新 Issue**：如果是新格式（单个文件），直接更新 issue 的 frontmatter 标签
+7. **自查**：按 PASS 条件 AC1–AC6 填自查表，每条给证据
 
 ---
 
@@ -64,6 +66,24 @@
 | `HITL` | 需要人盯着（Human In The Loop） |
 | `good-first-issue` | 适合新手 |
 | `P0/P1/P2` | 优先级 |
+
+### 新格式状态标签（GitHub-style）
+
+| 标签 | 含义 | Emoji |
+|---|---|---|
+| `status/pending` | 待开始 | 🟣 |
+| `status/in-progress` | 正在进行中 | 🔵 |
+| `status/blocked` | 被阻塞 | 🚧 |
+| `status/done` | 已完成 | ✅ |
+
+### TODO 标签
+
+| 标签 | 含义 |
+|---|---|
+| `todo` | 这是一个 TODO 项 |
+| `status/open` | TODO 待解决 |
+| `status/resolved` | TODO 已解决 |
+| `status/closed` | TODO 已关闭 |
 
 ---
 

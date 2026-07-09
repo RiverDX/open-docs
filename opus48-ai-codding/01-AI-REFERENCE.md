@@ -1,6 +1,6 @@
 # Opus48 AI 使用参考手册
 
-> **版本**：V2.1
+> **版本**：V2.2
 > **目的**：快速找到适合当前场景的 skill，知道怎么用
 
 ---
@@ -291,7 +291,8 @@
    - 切垂直切片：每个 issue 都是端到端的完整故事
    - 曳光弹先行：第一个 issue 最小但完整
    - 标记 AFK/HITL：区分 AI 能做的和需要人的
-3. 输出：Issue 清单文档
+   - **生成分离的 Issue 文件**（新格式）：创建 `docs/issues/{功能名}-{YYYY-MM-DD}/` 目录，每个 issue 独立文件 + README 总览
+3. 输出：Issue 清单文档（旧格式）+ 分离的 Issue 文件（新格式）
 
 **输入示例**：
 ```
@@ -332,6 +333,64 @@ Issue 3：最后做前端
 - Issue 4：用户可以按优先级筛选（AFK）
 ```
 
+**新格式：分离的 Issue 文件**：
+```
+docs/issues/task-management-2026-06-28/
+├── README.md                 # 总览（状态看板 + 依赖图）
+├── 001-创建任务并看到在列表中.md
+├── 002-更新任务状态.md
+├── 003-删除任务.md
+└── 004-按优先级筛选任务.md
+```
+
+**单个 Issue 文件格式**（带 frontmatter）：
+```markdown
+---
+title: "[Enhancement] 用户可以创建任务并看到在列表中"
+labels: enhancement, HITL, P0, status/pending
+assignees: ''
+created: 2026-06-28
+---
+
+# Issue 001：用户可以创建任务并看到在列表中
+
+> **状态**：🟣 pending
+> **优先级**：P0
+> **类型**：enhancement
+> **AFK/HITL**：HITL
+> **依赖**：无
+> **阻塞的 TODO**：无
+> **对应 PRD**：[任务管理系统](../prd/task-management-2026-06-28.md)
+
+## 目标
+用户可以创建任务（只传标题），然后在任务列表中看到它。
+
+## 验收标准
+- [ ] 调用 `createTask("买牛奶")` 可以创建任务
+- [ ] 调用 `getTasks()` 可以看到刚创建的任务
+
+## 相关文档
+- [PRD](../prd/task-management-2026-06-28.md)
+- [CONTEXT.md](../../CONTEXT.md)
+
+---
+
+## 历史记录
+| 日期 | 状态变更 | 说明 |
+|------|---------|------|
+| 2026-06-28 | created → pending | Issue 创建 |
+```
+
+**TODO 跟踪**：
+当某个 issue 被问题阻塞时，创建 TODO 文件：
+```markdown
+docs/todos/todo-2026-06-28-001-确定持久化方案.md
+```
+TODO 文件记录：
+- 需要确认的问题
+- 阻塞的 issue 列表
+- 建议的解决方案
+
 ---
 
 ### 7. `/tdd` - 红→绿→重构循环
@@ -342,12 +401,15 @@ Issue 3：最后做前端
 - ✅ 想让测试像规格说明一样
 
 **怎么使用**：
-1. 输入：Issue + 验收标准
+1. 输入：Issue + 验收标准（可以是单个 Issue 文件路径）
 2. 步骤：
+   - **理解验收标准**：明确要做什么
+   - **更新 Issue 状态**：如果输入是单个 Issue 文件，将状态从 `pending` 更新为 `in-progress`，添加历史记录
    - 🔴 红：先写一个失败的测试（只一个！）
    - 🟢 绿：写刚好让测试通过的代码（不要过度设计！）
    - 🟠 重构：改进设计，保持测试通过（可选）
    - 重复：下一个测试
+   - **完成后更新状态**：将 Issue 状态从 `in-progress` 更新为 `done`
 3. 输出：测试代码 + 实现代码 + TDD 报告
 
 **输入示例**：
@@ -397,12 +459,14 @@ test("内部计算方法", () => {
 - ✅ Issue 清晰，想快速实现
 
 **怎么使用**：
-1. 输入：Issue + 验收标准 + CONTEXT.md
+1. 输入：Issue + 验收标准 + CONTEXT.md（可以是单个 Issue 文件路径）
 2. 步骤：
    - 理解任务：读 issue 和验收标准
+   - **更新 Issue 状态**：如果输入是单个 Issue 文件，将状态从 `pending` 更新为 `in-progress`，添加历史记录
    - TDD 循环：红→绿→重构，一次一个测试
    - 自动审查：按 6 维度检查代码
    - 写报告：记录 TDD 循环 + 审查结果
+   - **完成后更新状态**：将 Issue 状态从 `in-progress` 更新为 `done`
 3. 输出：测试代码 + 实现代码 + Implement 报告
 
 **输入示例**：
@@ -636,6 +700,47 @@ CONTEXT.md 在这里：
 1. 看本文档开头的「快速选择指南」
 2. 看 `00-NAVIGATION.md` 的路由表
 3. 还是不确定？从 `/grill-with-docs` 开始
+
+---
+
+### Q：Issue 用旧格式还是新格式？
+
+**A**：推荐新格式（GitHub-style），但旧格式仍然支持：
+
+- **新格式**：每个 issue 独立文件，有 frontmatter、状态跟踪、TODO 关联、历史记录
+  - 文件：`docs/issues/{功能名}-{YYYY-MM-DD}/001-{标题}.md`
+  - 总览：`docs/issues/{功能名}-{YYYY-MM-DD}/README.md`
+- **旧格式**：所有 issue 在一个清单文件中，简单直接
+  - 文件：`docs/issues/{功能名}-{YYYY-MM-DD}.md`
+
+建议：新项目用新格式，老项目可以继续用旧格式或逐步迁移。
+
+---
+
+### Q：什么时候需要创建 TODO？
+
+**A**：当 issue 被某个问题阻塞时：
+- 问题不明确，需要确认
+- 依赖某个决策
+- 不确定技术方案
+
+**怎么做**：
+1. 创建 TODO 文件：`docs/todos/todo-{YYYY-MM-DD}-001-{标题}.md`
+2. 记录：需要确认的问题、建议的解决方案
+3. 关联：在 TODO 中标记阻塞的 issue
+4. 在 Issue 中：标记「阻塞的 TODO」指向这个文件
+
+---
+
+### Q：Issue 状态有哪些？怎么更新？
+
+**A**：
+- 🟣 **pending**：待开始
+- 🔵 **in-progress**：进行中（`/tdd` 或 `/implement` 开始时自动更新）
+- 🚧 **blocked**：被阻塞（被 TODO 或其他 issue 阻塞）
+- ✅ **done**：已完成（`/tdd` 或 `/implement` 完成时自动更新）
+
+状态变更都要记录在 Issue 的「历史记录」表格中。
 
 ---
 
