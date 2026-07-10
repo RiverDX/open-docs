@@ -22,6 +22,7 @@
 | 优化架构 / 深化模块 / improve architecture | `/improve-architecture` | `skills/10-improve-architecture.md` |
 | 巡检文档 / 检查腐化 / doc rot / 健康度 | `/doc-rot` | `skills/11-doc-rot.md` |
 | 实现 / implement / 写代码 + 审查 / 一条龙 | `/implement` | `skills/12-implement.md` |
+| 画架构图 / workflow / sequence / dataflow / lifecycle | `/archify` | `skills/archify/SKILL.md` |
 
 **匹配规则**：
 - 如果用户输入命中上表 → 立即读对应文件，按其中规则执行

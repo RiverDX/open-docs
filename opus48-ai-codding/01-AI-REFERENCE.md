@@ -657,6 +657,59 @@ CONTEXT.md 在这里：
 ## 健康度评分：75/100
 
 ### ✅ 做得好的
+```
+
+---
+
+### 12. `/archify` - 架构图生成（新！）
+
+**适用场景**：
+- ✅ 需要画系统架构图
+- ✅ 需要画工作流/CI/CD流程图
+- ✅ 需要画时序图（API调用链）
+- ✅ 需要画数据流图（数据管线、ETL）
+- ✅ 需要画状态机/生命周期图
+- ✅ 需要把 Mermaid 图转换成精美架构图
+
+**怎么使用**：
+1. 输入：用大白话描述系统或流程
+2. 步骤：
+   - 选择合适的图类型：`architecture` / `workflow` / `sequence` / `dataflow` / `lifecycle`
+   - 写 JSON IR（中间表示）
+   - 渲染：`node skills/archify/bin/archify.mjs render <type> <input>.json <output>.html`
+   - 验证：`node skills/archify/bin/archify.mjs validate <type> <input>.json --json`
+3. 输出：单文件 HTML（支持深色/浅色主题切换，支持导出 PNG/JPEG/WebP/SVG）
+
+**输入示例**：
+```
+用 archify 画这个系统的架构图：
+React 前端 → Node API → PostgreSQL 数据库 → Redis 缓存
+部署在 AWS 上，有 CloudFront CDN
+```
+
+**图类型选择指南**：
+| 场景 | 图类型 | 说明 |
+|---|---|---|
+| 系统组件、云资源、数据库 | `architecture` | 系统架构图，展示组件和连接 |
+| 技术流程、CI/CD、审批链 | `workflow` | 工作流图，有泳道、阶段 |
+| API 调用链、请求生命周期 | `sequence` | 时序图，展示服务之间的调用顺序 |
+| 数据管线、ETL、数据血缘 | `dataflow` | 数据流图，展示数据走向和处理 |
+| 状态机、任务生命周期 | `lifecycle` | 状态/生命周期图 |
+
+**输出文件位置**：
+- 推荐放在项目的 `docs/diagrams/` 目录
+
+---
+
+## 🔗 在 Skill 中集成 archify
+
+除了作为独立 Skill 使用，archify 也可以在以下阶段被自动调用：
+
+| 阶段 | 何时调用 | 生成什么图 |
+|---|---|---|
+| `/to-prd` 之后 | PRD 中提到系统架构、数据流 | architecture diagram |
+| `/improve-architecture` 时 | 有架构改进机会时 | before/after comparison |
+| `/prototype-to-business` 之后 | 业务梳理文档完成时 | workflow/dataflow diagram |
 - CONTEXT.md 更新及时
 - API 文档基本一致
 
@@ -776,6 +829,19 @@ CONTEXT.md 在这里：
 - ✅ **done**：已完成（`/tdd` 或 `/implement` 完成时自动更新）
 
 状态变更都要记录在 Issue 的「历史记录」表格中。
+
+---
+
+### Q：什么时候用 `/archify`？
+
+**A**：
+- 需要可视化系统架构时 → `architecture` 图
+- 需要理解业务流程时 → `workflow` 图
+- 需要理解 API 调用链时 → `sequence` 图
+- 需要展示数据流向时 → `dataflow` 图
+- 需要说明状态转换时 → `lifecycle` 图
+
+**关键词触发**：当用户提到「架构图」、「流程图」、「时序图」、「数据流」、「状态机」时，立即调用 `/archify`。
 
 ---
 

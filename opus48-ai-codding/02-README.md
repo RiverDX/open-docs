@@ -1,11 +1,11 @@
 # Opus48 AI 编程工作流
 
-> **版本**：V2.2  
+> **版本**：V2.4  
 > **核心理念**：Matt Pocock Agent Skills + Loop Engineering  
 > **设计原则**：极简、艺术、先理解再动手、在聪明区工作  
 > **适用场景**：任何编程项目（Java/SpringBoot 优先支持）
 
-**V2.3 更新**：新增原型图→业务梳理→PRD 流程，支持从设计稿开始开发
+**V2.4 更新**：集成 Archify Skill，支持从原型图→业务梳理→PRD→架构图的完整流程；Archify 可以画 architecture、workflow、sequence、dataflow、lifecycle 五种图
 
 ---
 
@@ -84,7 +84,7 @@ opus48-ai-codding/
 ├── 04-CHECKLIST.md               # [速查] 完整检查清单
 ├── 05-WORKFLOW.md               # [人类用] 完整工作流调用指南（新！）
 ├── 06-CONTEXT.md                 # [项目用] 共享语言模板（复制到项目根目录）
-├── skills/                        # 12 个 Skill（按顺序）
+├── skills/                        # 13 个 Skill（按顺序）
 │   ├── 01-triage.md               # 画布整理
 │   ├── 02-prototype-to-business.md # 原型转业务梳理（新！）
 │   ├── 03-grill-with-docs.md      # 对齐共识
@@ -96,7 +96,8 @@ opus48-ai-codding/
 │   ├── 09-codex-review.md        # 画布审查
 │   ├── 10-improve-architecture.md # 深化模块
 │   ├── 11-doc-rot.md             # 月度巡检
-│   └── 12-implement.md           # 实现一条龙
+│   ├── 12-implement.md           # 实现一条龙
+│   └── archify/SKILL.md          # 🎨 Archify 架构图生成（新！）
 ├── templates/                     # 脚手架模板（复制即用）
 │   ├── README.md                  # 模板使用说明
 │   ├── CONTEXT.md.template        # 共享语言模板
