@@ -12,6 +12,7 @@
 |---|---|---|
 | 梳理 backlog / 分类 issue / 分流 / 整理任务 | `/triage` | `skills/01-triage.md` |
 | 理解需求 / 澄清 / grill / 对齐共识 / 先问问题 | `/grill-with-docs` | `skills/02-grill-with-docs.md` |
+| 原型转业务 / 原型分析 / 业务梳理 / 原型图 | `/prototype-to-business` | `skills/02.5-prototype-to-business.md` |
 | 分流会话 / handoff / 保持聚焦 / 另开对话 | `/handoff` | `skills/03-handoff.md` |
 | 做原型 / 探索 / 验证想法 / 先试试 / 草稿 | `/prototype` | `skills/04-prototype.md` |
 | 写 PRD / 写需求文档 / 固化共识 / 产品需求 | `/to-prd` | `skills/05-to-prd.md` |
@@ -24,7 +25,7 @@
 
 **匹配规则**：
 - 如果用户输入命中上表 → 立即读对应文件，按其中规则执行
-- 如果不命中 → 反问"你想做下列哪件事？"列出 11 个 Skill 名
+- 如果不命中 → 反问"你想做下列哪件事？"列出 12 个 Skill 名
 - **禁止自由发挥**，禁止跳过 Skill 直接动手
 
 ---

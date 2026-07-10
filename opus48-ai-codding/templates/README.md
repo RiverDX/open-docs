@@ -10,6 +10,7 @@
 |---|---|---|
 | `CONTEXT.md.template` | 共享语言模板 | 项目根目录的 `CONTEXT.md` |
 | `grill-report.md.template` | Grill 报告模板 | `docs/reports/grill-YYYY-MM-DD.md` |
+| `business-analysis.md.template` | 业务梳理文档模板（新！） | `docs/business/xxx-YYYY-MM-DD.md` |
 | `prd.md.template` | PRD 模板 | `docs/prd/xxx-YYYY-MM-DD.md` |
 | `issues.md.template` | Issue 清单模板（旧格式） | `docs/issues/xxx-YYYY-MM-DD.md` |
 | `issues-readme.md.template` | Issue 总览模板（新格式） | `docs/issues/{功能名}-{YYYY-MM-DD}/README.md` |
@@ -60,6 +61,19 @@ Grill 完成后生成的报告，包含：
 - 达成的决策
 - 高保真问题识别
 - 自查表
+
+### business-analysis.md.template
+
+业务梳理文档模板（新！），包含：
+- 原型图和简要描述
+- 用户角色
+- 业务流程（正常+异常）
+- 功能清单
+- 数据需求
+- 界面描述
+- 验收标准（初稿）
+- 风险点
+- 待确认问题
 
 ### prd.md.template
 

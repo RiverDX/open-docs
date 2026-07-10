@@ -5,7 +5,7 @@
 > **设计原则**：极简、艺术、先理解再动手、在聪明区工作  
 > **适用场景**：任何编程项目（Java/SpringBoot 优先支持）
 
-**V2.2 更新**：优化文档结构，消除重复内容，明确各文档分工
+**V2.3 更新**：新增原型图→业务梳理→PRD 流程，支持从设计稿开始开发
 
 ---
 
@@ -84,12 +84,13 @@ opus48-ai-codding/
 ├── 04-CHECKLIST.md               # [速查] 完整检查清单
 ├── 05-WORKFLOW.md               # [人类用] 完整工作流调用指南（新！）
 ├── 06-CONTEXT.md                 # [项目用] 共享语言模板（复制到项目根目录）
-├── skills/                        # 11 个 Skill（按顺序）
+├── skills/                        # 12 个 Skill（按顺序）
 │   ├── 01-triage.md               # 画布整理
 │   ├── 02-grill-with-docs.md      # 对齐共识
+│   ├── 02.5-prototype-to-business.md # 原型转业务梳理（新！）
 │   ├── 03-handoff.md              # 上下文接力
 │   ├── 04-prototype.md            # 草稿探索
-│   ├── 05-to-prd.md               # 定稿草图
+│   ├── 05-to-prd.md               # 定稿草图（支持业务梳理文档）
 │   ├── 06-to-issues.md            # 垂直切片
 │   ├── 07-tdd.md                 # 红→绿→重构
 │   ├── 08-codex-review.md        # 画布审查
@@ -101,6 +102,7 @@ opus48-ai-codding/
 │   ├── CONTEXT.md.template        # 共享语言模板
 │   ├── grill-report.md.template   # Grill 报告模板
 │   ├── prd.md.template            # PRD 模板
+│   ├── business-analysis.md.template # 业务梳理文档模板（新！）
 │   ├── issues.md.template         # Issue 清单模板（旧格式）
 │   ├── issues-readme.md.template  # Issue 总览模板（新格式）
 │   ├── single-issue.md.template   # 单个 GitHub-style Issue 模板
@@ -110,6 +112,7 @@ opus48-ai-codding/
     ├── README.md                  # 示例说明
     ├── CONTEXT.md                 # 示例共享语言
     ├── docs/
+    │   ├── business/...           # 示例业务梳理文档（新！）
     │   ├── prd/...                # 示例 PRD
     │   ├── issues/...             # 示例 Issue 清单（旧 + 新格式）
     │   ├── todos/...              # 示例 TODO 列表
