@@ -11,17 +11,17 @@
 | 用户说的关键词 | 你必须启动的 Skill | 对应文件 |
 |---|---|---|
 | 梳理 backlog / 分类 issue / 分流 / 整理任务 | `/triage` | `skills/01-triage.md` |
-| 理解需求 / 澄清 / grill / 对齐共识 / 先问问题 | `/grill-with-docs` | `skills/02-grill-with-docs.md` |
-| 原型转业务 / 原型分析 / 业务梳理 / 原型图 | `/prototype-to-business` | `skills/02.5-prototype-to-business.md` |
-| 分流会话 / handoff / 保持聚焦 / 另开对话 | `/handoff` | `skills/03-handoff.md` |
-| 做原型 / 探索 / 验证想法 / 先试试 / 草稿 | `/prototype` | `skills/04-prototype.md` |
-| 写 PRD / 写需求文档 / 固化共识 / 产品需求 | `/to-prd` | `skills/05-to-prd.md` |
-| 拆任务 / 切片 / to issues / 分成小任务 | `/to-issues` | `skills/06-to-issues.md` |
-| 写测试 / TDD / 测试驱动 / 红→绿→重构 | `/tdd` | `skills/07-tdd.md` |
-| 审查代码 / code review / 预审 / 检查改动 | `/codex-review` | `skills/08-codex-review.md` |
-| 优化架构 / 深化模块 / improve architecture | `/improve-architecture` | `skills/09-improve-architecture.md` |
-| 巡检文档 / 检查腐化 / doc rot / 健康度 | `/doc-rot` | `skills/10-doc-rot.md` |
-| 实现 / implement / 写代码 + 审查 / 一条龙 | `/implement` | `skills/11-implement.md` |
+| 原型转业务 / 原型分析 / 业务梳理 / 原型图 | `/prototype-to-business` | `skills/02-prototype-to-business.md` |
+| 理解需求 / 澄清 / grill / 对齐共识 / 先问问题 | `/grill-with-docs` | `skills/03-grill-with-docs.md` |
+| 分流会话 / handoff / 保持聚焦 / 另开对话 | `/handoff` | `skills/04-handoff.md` |
+| 做原型 / 探索 / 验证想法 / 先试试 / 草稿 | `/prototype` | `skills/05-prototype.md` |
+| 写 PRD / 写需求文档 / 固化共识 / 产品需求 | `/to-prd` | `skills/06-to-prd.md` |
+| 拆任务 / 切片 / to issues / 分成小任务 | `/to-issues` | `skills/07-to-issues.md` |
+| 写测试 / TDD / 测试驱动 / 红→绿→重构 | `/tdd` | `skills/08-tdd.md` |
+| 审查代码 / code review / 预审 / 检查改动 | `/codex-review` | `skills/09-codex-review.md` |
+| 优化架构 / 深化模块 / improve architecture | `/improve-architecture` | `skills/10-improve-architecture.md` |
+| 巡检文档 / 检查腐化 / doc rot / 健康度 | `/doc-rot` | `skills/11-doc-rot.md` |
+| 实现 / implement / 写代码 + 审查 / 一条龙 | `/implement` | `skills/12-implement.md` |
 
 **匹配规则**：
 - 如果用户输入命中上表 → 立即读对应文件，按其中规则执行
